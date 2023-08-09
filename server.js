@@ -27,22 +27,18 @@ app.get('/pets/:name', (req, res) => {
         }
 })
 
-// app.get('/pets/owner', (req, res) => {
+app.get('/pets/owner/:owner', (req, res) => {
+    for(let i = 0; i < pets.length; i++){
+        arrayOwners.push(pets[i].owner)
+    }
+    console.log(arrayOwners)
 
-//     const userName = req.query.owner
-//     res.json({
-//         name
-//     })
-//     for(let i = 0; i < pets.length; i++){
-//         arrayOwners.push(pets[i].owner)
-//     }
-    
-//     if(arrayOwners.includes(req.query.owner)){
-//         res.send(`Welcome ${req.query.owner}`)
-//     } else {
-//         res.send("No Owner by that name")
-//     }
-// })
+    if(arrayOwners.includes(req.params.owner)){
+        res.send(`Welcome ${req.params.owner}`)
+    } else {
+        res.send("No Owner by that name")
+    }
+})
 
 const PORT = 8000;
 app.listen(PORT)
