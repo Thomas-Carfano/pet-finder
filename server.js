@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
+//Loop through pets array and make a new array just containing names
+//if user input 
 app.get('/pets', (req, res) => {    
     const mapPets = () => {
         for(let i = 0; i < pets.length; i++){
